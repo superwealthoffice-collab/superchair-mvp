@@ -31,20 +31,20 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
               
               {/* Video Placeholder */}
               <div className="flex items-center justify-center">
-                <div className={`relative rounded-2xl overflow-hidden shadow-xl w-full max-w-md h-64 ${isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-600' : 'bg-gradient-to-br from-gray-900 to-gray-700'}`}>
+                <div className={`relative rounded-2xl overflow-hidden shadow-xl w-full max-w-md h-64 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl cursor-pointer ${isDarkMode ? 'bg-gradient-to-br from-gray-800 to-gray-600' : 'bg-gradient-to-br from-gray-900 to-gray-700'}`}>
                   <div className="absolute inset-0 bg-black bg-opacity-20"></div>
                   <div className={`absolute top-4 right-4 px-2 py-1 rounded text-xs font-medium ${isDarkMode ? 'bg-gray-900 bg-opacity-70 text-gray-200' : 'bg-black bg-opacity-50 text-white'}`}>
                     HD
                   </div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
-                      <div className="bg-white bg-opacity-90 rounded-full p-4 mb-3 hover:bg-opacity-100 transition-all cursor-pointer group">
+                      <div className="bg-white bg-opacity-90 rounded-full p-4 mb-3 hover:bg-opacity-100 transition-all duration-300 cursor-pointer group transform hover:scale-110 active:scale-95">
                         <div className="w-6 h-6 text-black flex items-center justify-center">
-                          <div className="w-0 h-0 border-l-[8px] border-l-black border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1"></div>
+                          <div className="w-0 h-0 border-l-[8px] border-l-black border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ml-1 transition-transform duration-300 group-hover:scale-110"></div>
                         </div>
                       </div>
-                      <p className="text-white text-sm font-medium">{t('home.watch_demo')}</p>
-                      <p className="text-white text-xs opacity-75">{t('home.see_in_action')}</p>
+                      <p className="text-white text-sm font-medium transition-all duration-300 hover:text-opacity-90">{t('home.watch_demo')}</p>
+                      <p className="text-white text-xs opacity-75 transition-all duration-300 hover:opacity-90">{t('home.see_in_action')}</p>
                     </div>
                   </div>
                   <div className="absolute bottom-4 left-4 text-white text-xs font-medium">
@@ -62,10 +62,10 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 {t('home.hero_subtitle')}
               </p>
               <div className="flex gap-6 pt-6">
-                <button onClick={handleShopChairsClick} className={`px-10 py-4 rounded-full text-sm font-medium transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
+                <button onClick={handleShopChairsClick} className={`px-10 py-4 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
                   {t('home.shop_chairs')}
                 </button>
-                <button onClick={handleAboutClick} className={`border px-10 py-4 rounded-full text-sm font-medium transition-colors ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-gray-500' : 'border-gray-300 text-gray-700 hover:border-gray-400'}`}>
+                <button onClick={handleAboutClick} className={`border px-10 py-4 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 hover:bg-opacity-5 ${isDarkMode ? 'border-gray-600 text-gray-300 hover:border-gray-500 hover:bg-white' : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-black'}`}>
                   {t('home.about_us')}
                 </button>
               </div>
@@ -85,7 +85,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                     className="w-16 h-16 object-cover rounded-xl"
                   />
                 </div>
-                <div className={`absolute -bottom-20 right-4 w-80 h-48 rounded-2xl shadow-lg transition-colors duration-300 ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+                <div className={`absolute -bottom-20 right-4 w-80 h-48 rounded-2xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
                   {/* Header with stats */}
                   <div className="p-4 border-b border-gray-200 dark:border-gray-700">
                     <div className="flex items-center justify-between">
@@ -192,7 +192,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                         rating: 5
                       }
                     ].map((testimonial, index) => (
-                      <div key={index} className={`p-3 rounded-lg transition-colors duration-300 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-50 hover:bg-gray-100'}`}>
+                      <div key={index} className={`p-3 rounded-lg transition-all duration-300 transform hover:scale-102 ${isDarkMode ? 'bg-gray-700 hover:bg-gray-600' : 'bg-gray-50 hover:bg-gray-100'}`}>
                         <div className="flex items-start space-x-3">
                           <div className={`w-8 h-8 bg-gradient-to-br ${testimonial.avatar} rounded-full flex-shrink-0`}></div>
                           <div className="flex-1 min-w-0">
@@ -244,7 +244,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
               <h3 className={`text-2xl font-bold mb-3 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.executive_chairs')}</h3>
               <p className={`mb-4 text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.executive_chairs_desc')}</p>
               <button className={`flex items-center text-sm font-medium group-hover:translate-x-2 transition-all duration-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4" />
+                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
 
@@ -260,7 +260,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
               <h3 className={`text-2xl font-bold mb-3 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.ergonomic_chairs')}</h3>
               <p className={`mb-4 text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.ergonomic_chairs_desc')}</p>
               <button className={`flex items-center text-sm font-medium group-hover:translate-x-2 transition-all duration-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4" />
+                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
 
@@ -276,7 +276,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
               <h3 className={`text-2xl font-bold mb-3 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.gaming_chairs')}</h3>
               <p className={`mb-4 text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.gaming_chairs_desc')}</p>
               <button className={`flex items-center text-sm font-medium group-hover:translate-x-2 transition-all duration-300 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4" />
+                {t('home.explore_category')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </div>
           </div>
@@ -298,7 +298,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 <p className={`mb-8 leading-relaxed transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {t('home.ultimate_comfort_desc')}
                 </p>
-                <button onClick={handleShopChairsClick} className={`px-8 py-3 rounded-full text-sm font-medium transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
+                <button onClick={handleShopChairsClick} className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
                   {t('home.shop_chairs')}
                 </button>
               </div>
@@ -313,7 +313,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
           <div className="flex justify-between items-center mb-12">
             <h2 className={`text-3xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.best_sellers')}</h2>
             <button className={`flex items-center text-sm font-medium hover:translate-x-1 transition-transform ${isDarkMode ? 'text-white' : 'text-black'}`}>
-              {t('home.view_products')} <ArrowRight className="ml-2 h-4 w-4" />
+              {t('home.view_products')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 hover:translate-x-1" />
             </button>
           </div>
 
@@ -370,7 +370,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
             <p className={`leading-relaxed max-w-2xl mx-auto mb-8 transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               {t('home.craftsmanship_desc')}
             </p>
-            <button onClick={handleAboutClick} className={`px-8 py-3 rounded-full text-sm font-medium transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
+            <button onClick={handleAboutClick} className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
               {t('home.read_our_story')}
             </button>
           </div>
@@ -400,7 +400,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
           <div className="flex justify-between items-center mb-12">
             <h2 className={`text-3xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.featured_products')}</h2>
             <button className={`flex items-center text-sm font-medium hover:translate-x-1 transition-transform ${isDarkMode ? 'text-white' : 'text-black'}`}>
-              {t('home.view_chairs')} <ArrowRight className="ml-2 h-4 w-4" />
+              {t('home.view_chairs')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 hover:translate-x-1" />
             </button>
           </div>
 
@@ -513,7 +513,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 placeholder={t('home.email_placeholder')}
                 className={`flex-1 px-4 py-3 border rounded-full focus:outline-none focus:ring-1 text-sm transition-colors ${isDarkMode ? 'bg-gray-800 border-gray-600 text-white placeholder-gray-400 focus:ring-gray-500 focus:border-gray-500' : 'bg-white border-gray-200 text-black placeholder-gray-500 focus:ring-gray-300 focus:border-gray-300'}`}
               />
-              <button className={`px-8 py-3 rounded-full text-sm font-medium transition-colors ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
+              <button className={`px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 ${isDarkMode ? 'bg-white text-black hover:bg-gray-200' : 'bg-black text-white hover:bg-gray-800'}`}>
                 {t('home.subscribe')}
               </button>
             </div>
@@ -531,7 +531,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
           <div className="flex justify-between items-center mb-12">
             <h2 className={`text-3xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.latest_articles')}</h2>
             <button className={`flex items-center text-sm font-medium hover:translate-x-1 transition-transform ${isDarkMode ? 'text-white' : 'text-black'}`}>
-              {t('home.view_all_articles')} <ArrowRight className="ml-2 h-4 w-4" />
+              {t('home.view_all_articles')} <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 hover:translate-x-1" />
             </button>
           </div>
 
