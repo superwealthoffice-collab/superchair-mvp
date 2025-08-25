@@ -315,46 +315,49 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
-            <div className="group">
-              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-xl ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Executive Office Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Executive</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-sm mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 899.99 USD</p>
-              <h3 className={`text-lg font-medium mb-2 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.executive_office_chair')}</h3>
-              <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.executive_office_chair_desc')}</p>
+              <h3 className={`text-lg font-medium mb-2 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.executive_office_chair')}</h3>
+              <p className={`text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.executive_office_chair_desc')}</p>
             </div>
 
-            <div className="group">
-              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-xl ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Ergonomic Task Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Ergonomic</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-sm mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 649.99 USD</p>
-              <h3 className={`text-lg font-medium mb-2 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.ergonomic_task_chair')}</h3>
-              <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.ergonomic_task_chair_desc')}</p>
+              <h3 className={`text-lg font-medium mb-2 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.ergonomic_task_chair')}</h3>
+              <p className={`text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.ergonomic_task_chair_desc')}</p>
             </div>
 
-            <div className="group">
-              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-8 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-xl ${isDarkMode ? 'bg-gray-800 group-hover:bg-gray-700' : 'bg-gray-100 group-hover:bg-gray-200'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Gaming Chair Pro"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Gaming</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-sm mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 549.99 USD</p>
-              <h3 className={`text-lg font-medium mb-2 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.gaming_chair_pro')}</h3>
-              <p className={`text-sm leading-relaxed transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.gaming_chair_pro_desc')}</p>
+              <h3 className={`text-lg font-medium mb-2 transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.gaming_chair_pro')}</h3>
+              <p className={`text-sm leading-relaxed transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{t('home.gaming_chair_pro_desc')}</p>
             </div>
           </div>
 
@@ -399,69 +402,74 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
-            <div className="group">
-              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-lg ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
                   alt="Executive Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Executive</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-xs mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 899.99 USD</p>
-              <h3 className={`text-sm font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.executive_chair')}</h3>
+              <h3 className={`text-sm font-medium transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.executive_chair')}</h3>
             </div>
 
-            <div className="group">
-              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-lg ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
                   alt="Task Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Ergonomic</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-xs mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 649.99 USD</p>
-              <h3 className={`text-sm font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.task_chair')}</h3>
+              <h3 className={`text-sm font-medium transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.task_chair')}</h3>
             </div>
 
-            <div className="group lg:col-start-3 lg:row-start-1 lg:row-span-2">
-              <div className={`rounded-3xl p-8 mb-4 aspect-square lg:aspect-[4/5] flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
+            <div className="group cursor-pointer lg:col-start-3 lg:row-start-1 lg:row-span-2">
+              <div className={`rounded-3xl p-8 mb-4 aspect-square lg:aspect-[4/5] flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-xl ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=400"
                   alt="Premium Gaming Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-4 left-4 px-3 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Gaming</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-sm mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 1,249.99 USD</p>
-              <h3 className={`text-base font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.premium_gaming_chair')}</h3>
+              <h3 className={`text-base font-medium transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.premium_gaming_chair')}</h3>
             </div>
 
-            <div className="group">
-              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-lg ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
                   alt="Mesh Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Mesh</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-xs mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 449.99 USD</p>
-              <h3 className={`text-sm font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.mesh_chair')}</h3>
+              <h3 className={`text-sm font-medium transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.mesh_chair')}</h3>
             </div>
 
-            <div className="group">
-              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-colors relative ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
+            <div className="group cursor-pointer">
+              <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-lg ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
                 <img
                   src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
                   alt="Conference Chair"
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Conference</span>
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>
               <p className={`text-xs mb-1 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>$ 349.99 USD</p>
-              <h3 className={`text-sm font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.conference_chair')}</h3>
+              <h3 className={`text-sm font-medium transition-all duration-300 group-hover:text-opacity-80 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{t('home.conference_chair')}</h3>
             </div>
           </div>
 
