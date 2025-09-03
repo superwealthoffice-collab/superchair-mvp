@@ -70,33 +70,14 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 </button>
               </div>
 
-            {/* Infinity Scrolling Brand Bar */}
-            <div className="pt-16">
-              <p className={`text-center text-sm mb-8 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                Trusted by leading companies worldwide
-              </p>
-              <div className="relative overflow-hidden">
-                <div className="flex animate-scroll">
-                  {/* First set of brands */}
-                  <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Amazon</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Netflix</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Tesla</div>
-                  </div>
-                  {/* Duplicate set for seamless loop */}
-                  <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Amazon</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Netflix</div>
-                    <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Tesla</div>
-                  </div>
-                </div>
+            {/* Scroll Indicator */}
+            <div className="flex flex-col items-center pt-12">
+              <div className={`w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 animate-bounce transition-colors duration-300 ${isDarkMode ? 'border-gray-600' : 'border-gray-300'}`}>
+                <div className={`w-1 h-2 rounded-full animate-pulse transition-colors duration-300 ${isDarkMode ? 'bg-gray-400' : 'bg-gray-600'}`}></div>
               </div>
+              <p className={`text-xs mt-2 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                Scroll
+              </p>
             </div>
             </div>
             <div className="relative flex items-center justify-center">
@@ -251,6 +232,37 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Infinity Scrolling Brand Bar */}
+      <section className={`py-12 transition-colors duration-300 ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className={`text-center text-sm mb-8 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+            Trusted by leading companies worldwide
+          </p>
+          <div className="relative overflow-hidden">
+            <div className="flex animate-scroll">
+              {/* First set of brands */}
+              <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Amazon</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Netflix</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Tesla</div>
+              </div>
+              {/* Duplicate set for seamless loop */}
+              <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Amazon</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Netflix</div>
+                <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Tesla</div>
               </div>
             </div>
           </div>
