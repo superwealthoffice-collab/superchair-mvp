@@ -317,7 +317,7 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
   );
 
   const ProductListItem = ({ product }: { product: typeof products[0] }) => (
-    <div className={`flex gap-6 p-6 rounded-3xl transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg`}>
+    <Link to={`/product/${product.id}`} className={`flex gap-6 p-6 rounded-3xl transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg block`}>
       <div className="relative">
         <img
           src={product.image}
@@ -402,8 +402,12 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
               </div>
             )}
 
-            <Link
-              to={`/product/${product.id}`}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                // Handle add to cart logic here
+              }}
               className={`py-3 px-6 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 product.inStock
                   ? isDarkMode
@@ -414,11 +418,11 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
             >
               <ShoppingCart className="h-4 w-4" />
               {product.inStock ? t('products.add_to_cart') : t('products.out_of_stock')}
-            </Link>
+            </button>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 
   return (
