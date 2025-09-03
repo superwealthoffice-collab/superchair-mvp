@@ -10,6 +10,7 @@ import Articles from './pages/Articles';
 import Contact from './pages/Contact';
 import Cart from './pages/Cart';
 import Customize from './pages/Customize';
+import ProductDetail from './pages/ProductDetail';
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = React.useState(false);
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/contact" element={<Contact isDarkMode={isDarkMode} />} />
           <Route path="/cart" element={<Cart isDarkMode={isDarkMode} />} />
           <Route path="/customize/:id" element={<Customize />} />
+          <Route path="/product/:id" element={<ProductDetail isDarkMode={isDarkMode} />} />
         </Routes>
         
         <Footer isDarkMode={isDarkMode} />
