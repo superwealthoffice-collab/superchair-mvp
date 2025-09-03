@@ -30,9 +30,9 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
             Trusted by leading companies worldwide
           </p>
           <div className="relative overflow-hidden">
-            <div className="flex animate-scroll">
+            <div className="flex animate-scroll whitespace-nowrap">
               {/* First set of brands */}
-              <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
+              <div className="flex items-center justify-center shrink-0 space-x-16 px-8">
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
@@ -41,7 +41,7 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Tesla</div>
               </div>
               {/* Duplicate set for seamless loop */}
-              <div className="flex items-center justify-center min-w-0 shrink-0 space-x-16 px-8">
+              <div className="flex items-center justify-center shrink-0 space-x-16 px-8">
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Microsoft</div>
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Google</div>
                 <div className={`text-2xl font-bold transition-colors duration-300 ${isDarkMode ? 'text-gray-600' : 'text-gray-300'}`}>Apple</div>
