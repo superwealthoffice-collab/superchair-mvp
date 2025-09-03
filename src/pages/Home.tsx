@@ -495,11 +495,13 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
 
             <div className="group cursor-pointer">
               <div className={`rounded-3xl p-6 mb-4 aspect-square flex items-center justify-center transition-all duration-300 relative transform group-hover:scale-105 group-hover:shadow-lg ${isDarkMode ? 'bg-gray-700 group-hover:bg-gray-600' : 'bg-gray-200 group-hover:bg-gray-300'}`}>
-                <img
-                  src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
-                  alt="Conference Chair"
-                  className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
-                />
+                <Link to="/product/5" className="w-full h-full">
+                  <img
+                    src="https://images.pexels.com/photos/1957477/pexels-photo-1957477.jpeg?auto=compress&cs=tinysrgb&w=300"
+                    alt="Conference Chair"
+                    className="w-full h-full object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
+                  />
+                </Link>
                 <span className={`absolute bottom-3 left-3 px-2 py-1 rounded-full text-xs font-medium ${isDarkMode ? 'bg-gray-900 text-white' : 'bg-white text-black'}`}>Conference</span>
                 <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 rounded-2xl"></div>
               </div>

@@ -403,7 +403,7 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
             )}
 
             <Link
-              to={`/customize/${product.id}`}
+              to={`/product/${product.id}`}
               className={`py-3 px-6 rounded-full text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
                 product.inStock
                   ? isDarkMode
