@@ -70,15 +70,6 @@ const Home: React.FC<HomeProps> = ({ isDarkMode }) => {
                 </button>
               </div>
 
-            {/* Scroll Indicator */}
-            <div className="flex flex-col items-center pt-12">
-              <div className={`w-6 h-10 border-2 rounded-full flex items-start justify-center p-2 animate-bounce transition-colors duration-300 ${isDarkMode ? 'border-gray-600' : 'border-gray-300'}`}>
-                <div className={`w-1 h-2 rounded-full animate-pulse transition-colors duration-300 ${isDarkMode ? 'bg-gray-400' : 'bg-gray-600'}`}></div>
-              </div>
-              <p className={`text-xs mt-2 transition-colors duration-300 ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                Scroll
-              </p>
-            </div>
             </div>
             <div className="relative flex items-center justify-center">
               <div className="relative">
