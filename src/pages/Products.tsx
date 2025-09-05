@@ -212,7 +212,7 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
   };
 
   const ProductCard = ({ product }: { product: typeof products[0] }) => (
-    <div className={`group relative rounded-3xl overflow-hidden transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg`}>
+    <Link to={`/product/${product.id}`} className={`group relative rounded-3xl overflow-hidden transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg block`}>
       {/* Product Badges */}
       <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
         {product.isNew && (
@@ -299,8 +299,12 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
           </div>
         )}
 
-        <Link
-          to={`/customize/${product.id}`}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Handle add to cart logic here
+          }}
           className={`w-full py-3 px-4 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
             product.inStock
               ? isDarkMode
@@ -311,19 +315,21 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
         >
           <ShoppingCart className="h-4 w-4" />
           {product.inStock ? t('products.add_to_cart') : t('products.out_of_stock')}
-        </Link>
+        </button>
       </div>
-    </div>
+    </Link>
   );
 
   const ProductListItem = ({ product }: { product: typeof products[0] }) => (
-    <Link to={`/product/${product.id}`} className={`flex gap-6 p-6 rounded-3xl transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg block`}>
+    <div className={`flex gap-6 p-6 rounded-3xl transition-all duration-300 ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700' : 'bg-white hover:bg-gray-50'} shadow-sm hover:shadow-lg`}>
       <div className="relative">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-32 h-32 object-cover rounded-2xl"
-        />
+        <Link to={`/product/${product.id}`}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="w-32 h-32 object-cover rounded-2xl"
+          />
+        </Link>
         <div className="absolute top-2 left-2 flex flex-col gap-1">
           {product.isNew && (
             <span className="px-2 py-1 bg-green-500 text-white text-xs font-medium rounded-full">{t('products.new')}</span>
@@ -336,9 +342,11 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
 
       <div className="flex-1">
         <div className="flex items-start justify-between mb-2">
-          <h3 className={`text-xl font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-            {product.name}
-          </h3>
+          <Link to={`/product/${product.id}`}>
+            <h3 className={`text-xl font-medium transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'} hover:underline`}>
+              {product.name}
+            </h3>
+          </Link>
           <button className="p-2 rounded-full hover:bg-gray-100 transition-colors">
             <Heart className="h-4 w-4 text-gray-600 hover:text-red-500" />
           </button>
@@ -358,9 +366,11 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
           </span>
         </div>
 
-        <p className={`mb-4 transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-          {product.description}
-        </p>
+        <Link to={`/product/${product.id}`}>
+          <p className={`mb-4 transition-colors duration-300 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+            {product.description}
+          </p>
+        </Link>
 
         <div className="flex flex-wrap gap-2 mb-4">
           {product.features.map((feature, index) => (
@@ -422,7 +432,7 @@ const Products: React.FC<ProductsProps> = ({ isDarkMode }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 
   return (
