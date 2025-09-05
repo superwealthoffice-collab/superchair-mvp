@@ -28,7 +28,9 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ isDarkMode = false }) => 
   const { t } = useTranslation();
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
-  const [selectedColor, setSelectedColor] = useState('black');
+  const [selectedBackrestColor, setSelectedBackrestColor] = useState('lime-black');
+  const [selectedSeatColor, setSelectedSeatColor] = useState('black-solid');
+  const [selectedPuColor, setSelectedPuColor] = useState('black-pu');
   const [selectedMaterial, setSelectedMaterial] = useState('leather');
 
   // Mock product data - in a real app, this would come from an API
@@ -67,10 +69,38 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ isDarkMode = false }) => 
       assembly: 'Required (30-45 minutes)',
       warranty: '5 years comprehensive'
     },
-    colors: [
-      { name: 'black', label: 'Black Leather', hex: '#1a1a1a' },
-      { name: 'brown', label: 'Brown Leather', hex: '#8b4513' },
-      { name: 'white', label: 'White Leather', hex: '#f8f8f8' }
+    backrestColors: [
+      { name: 'lime-black', label: 'Lime Black', hex: '#2d3748', pattern: 'mesh' },
+      { name: 'ash-grey', label: 'Ash Grey', hex: '#718096', pattern: 'mesh' },
+      { name: 'navy-blue', label: 'Navy Blue', hex: '#2c5282', pattern: 'mesh' },
+      { name: 'light-blue', label: 'Light Blue', hex: '#63b3ed', pattern: 'mesh' },
+      { name: 'tree-green', label: 'Tree Green', hex: '#38a169', pattern: 'mesh' },
+      { name: 'vit-c-orange', label: 'Vit C Orange', hex: '#ed8936', pattern: 'mesh' },
+      { name: 'ruby-red', label: 'Ruby Red', hex: '#e53e3e', pattern: 'mesh' },
+      { name: 'red-wine', label: 'Red Wine', hex: '#742a2a', pattern: 'mesh' },
+      { name: 'cherry-red', label: 'Cherry Red', hex: '#c53030', pattern: 'dots' },
+      { name: 'facebook-blue', label: 'Facebook Blue', hex: '#3182ce', pattern: 'dots' },
+      { name: 'smoke-grey', label: 'Smoke Grey', hex: '#a0aec0', pattern: 'dots' },
+      { name: 'ultra-black', label: 'Ultra Black', hex: '#1a202c', pattern: 'dots' },
+      { name: 'black-mesh', label: 'Black', hex: '#2d3748', pattern: 'fine-mesh' },
+      { name: 'smoke-grey-mesh', label: 'Smoke Grey', hex: '#a0aec0', pattern: 'fine-mesh' },
+      { name: 'blue-mesh', label: 'Blue', hex: '#4299e1', pattern: 'fine-mesh' }
+    ],
+    seatColors: [
+      { name: 'black-solid', label: 'Black', hex: '#1a1a1a' },
+      { name: 'light-grey-solid', label: 'Light Grey', hex: '#a0aec0' },
+      { name: 'dark-grey-solid', label: 'Dark Grey', hex: '#4a5568' },
+      { name: 'green-solid', label: 'Green', hex: '#38a169' },
+      { name: 'red-solid', label: 'Red', hex: '#e53e3e' },
+      { name: 'blue-solid', label: 'Blue', hex: '#3182ce' }
+    ],
+    puColors: [
+      { name: 'black-pu', label: 'Black', hex: '#2d3748' },
+      { name: 'grey-pu', label: 'Grey', hex: '#a0aec0' },
+      { name: 'white-pu', label: 'White', hex: '#f7fafc' },
+      { name: 'beige-pu', label: 'Beige', hex: '#d6bcaa' },
+      { name: 'brown-pu', label: 'Brown', hex: '#8b4513' },
+      { name: 'dark-brown-pu', label: 'Dark Brown', hex: '#553c2c' }
     ],
     materials: [
       { name: 'leather', label: 'Genuine Leather', price: 0 },
@@ -243,19 +273,81 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ isDarkMode = false }) => 
               </div>
             </div>
 
-            {/* Color Selection */}
+            {/* Backrest Color Selection */}
             <div className="mb-6">
               <h3 className={`font-medium mb-3 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
-                Color: {product.colors.find(c => c.name === selectedColor)?.label}
+                Backrest Color: {product.backrestColors.find(c => c.name === selectedBackrestColor)?.label}
               </h3>
-              <div className="flex gap-3">
-                {product.colors.map((color) => (
+              <div className="grid grid-cols-6 gap-3">
+                {product.backrestColors.map((color) => (
                   <button
                     key={color.name}
-                    onClick={() => setSelectedColor(color.name)}
-                    className={`w-12 h-12 rounded-full border-4 transition-all ${
-                      selectedColor === color.name
-                        ? 'border-black scale-110'
+                    onClick={() => setSelectedBackrestColor(color.name)}
+                    className={`w-16 h-12 rounded-lg border-2 transition-all relative overflow-hidden ${
+                      selectedBackrestColor === color.name
+                        ? 'border-black scale-105 ring-2 ring-blue-500'
+                        : isDarkMode
+                        ? 'border-gray-600 hover:border-gray-500'
+                        : 'border-gray-300 hover:border-gray-400'
+                    }`}
+                    title={color.label}
+                  >
+                    <div 
+                      className="w-full h-full"
+                      style={{ 
+                        backgroundColor: color.hex,
+                        backgroundImage: color.pattern === 'mesh' 
+                          ? 'repeating-linear-gradient(45deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px)'
+                          : color.pattern === 'dots'
+                          ? 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)'
+                          : color.pattern === 'fine-mesh'
+                          ? 'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,0.1) 1px, rgba(255,255,255,0.1) 2px)'
+                          : 'none',
+                        backgroundSize: color.pattern === 'dots' ? '4px 4px' : '3px 3px'
+                      }}
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Seat Color Selection */}
+            <div className="mb-6">
+              <h3 className={`font-medium mb-3 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                Seat Cushion Color: {product.seatColors.find(c => c.name === selectedSeatColor)?.label}
+              </h3>
+              <div className="grid grid-cols-6 gap-3">
+                {product.seatColors.map((color) => (
+                  <button
+                    key={color.name}
+                    onClick={() => setSelectedSeatColor(color.name)}
+                    className={`w-16 h-12 rounded-lg border-2 transition-all ${
+                      selectedSeatColor === color.name
+                        ? 'border-black scale-105 ring-2 ring-blue-500'
+                        : isDarkMode
+                        ? 'border-gray-600 hover:border-gray-500'
+                        : 'border-gray-300 hover:border-gray-400'
+                    }`}
+                    style={{ backgroundColor: color.hex }}
+                    title={color.label}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* PU Color Selection */}
+            <div className="mb-6">
+              <h3 className={`font-medium mb-3 transition-colors duration-300 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                PU Color: {product.puColors.find(c => c.name === selectedPuColor)?.label}
+              </h3>
+              <div className="grid grid-cols-6 gap-3">
+                {product.puColors.map((color) => (
+                  <button
+                    key={color.name}
+                    onClick={() => setSelectedPuColor(color.name)}
+                    className={`w-16 h-12 rounded-lg border-2 transition-all ${
+                      selectedPuColor === color.name
+                        ? 'border-black scale-105 ring-2 ring-blue-500'
                         : isDarkMode
                         ? 'border-gray-600 hover:border-gray-500'
                         : 'border-gray-300 hover:border-gray-400'
