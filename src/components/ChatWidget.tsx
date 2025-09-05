@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X, Send, MessageSquare, Mail } from 'lucide-react';
 
 interface ChatWidgetProps {
   isDarkMode: boolean;
@@ -8,6 +8,11 @@ interface ChatWidgetProps {
 const ChatWidget: React.FC<ChatWidgetProps> = ({ isDarkMode }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedFAQ, setSelectedFAQ] = useState<number | null>(null);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [feedbackForm, setFeedbackForm] = useState({
+    email: '',
+    message: ''
+  });
 
   const faqs = [
     {
@@ -51,6 +56,33 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isDarkMode }) => {
     setSelectedFAQ(selectedFAQ === faqId ? null : faqId);
   };
 
+  const handleFeedbackChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFeedbackForm(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleFeedbackSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle feedback submission here
+    console.log('Feedback submitted:', feedbackForm);
+    // Reset form and close modal
+    setFeedbackForm({ email: '', message: '' });
+    setShowFeedbackModal(false);
+    // You could show a success message here
+    alert('Thank you for your feedback! We\'ll get back to you soon.');
+  };
+
+  const openFeedbackModal = () => {
+    setShowFeedbackModal(true);
+  };
+
+  const closeFeedbackModal = () => {
+    setShowFeedbackModal(false);
+    setFeedbackForm({ email: '', message: '' });
+  };
   return (
     <>
       {/* Chat Button */}
@@ -134,6 +166,21 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isDarkMode }) => {
                 </div>
               ))}
             </div>
+
+            {/* Send Feedback Button */}
+            <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-600">
+              <button
+                onClick={openFeedbackModal}
+                className={`w-full flex items-center justify-center gap-2 p-3 rounded-lg text-sm font-medium transition-colors ${
+                  isDarkMode 
+                    ? 'bg-blue-600 hover:bg-blue-700 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white'
+                }`}
+              >
+                <MessageSquare className="h-4 w-4" />
+                Send Feedback
+              </button>
+            </div>
           </div>
 
           {/* Chat Input */}
@@ -152,6 +199,126 @@ const ChatWidget: React.FC<ChatWidgetProps> = ({ isDarkMode }) => {
                 <Send className="h-4 w-4" />
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Feedback Modal */}
+      {showFeedbackModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4">
+          <div className={`max-w-md w-full rounded-2xl transition-colors duration-300 ${
+            isDarkMode ? 'bg-gray-800' : 'bg-white'
+          }`}>
+            {/* Modal Header */}
+            <div className={`flex items-center justify-between p-6 border-b transition-colors duration-300 ${
+              isDarkMode ? 'border-gray-700' : 'border-gray-200'
+            }`}>
+              <div className="flex items-center gap-3">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                  isDarkMode ? 'bg-blue-600' : 'bg-blue-600'
+                }`}>
+                  <MessageSquare className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h3 className={`text-lg font-bold transition-colors duration-300 ${
+                    isDarkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    Send Feedback
+                  </h3>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    We'd love to hear from you
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={closeFeedbackModal}
+                className={`p-2 rounded-full transition-colors ${
+                  isDarkMode ? 'hover:bg-gray-700 text-gray-400' : 'hover:bg-gray-100 text-gray-500'
+                }`}
+              >
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <form onSubmit={handleFeedbackSubmit} className="p-6">
+              <div className="space-y-4">
+                <div>
+                  <label className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    Email Address *
+                  </label>
+                  <div className="relative">
+                    <Mail className={`absolute left-3 top-3 h-4 w-4 ${
+                      isDarkMode ? 'text-gray-400' : 'text-gray-500'
+                    }`} />
+                    <input
+                      type="email"
+                      name="email"
+                      value={feedbackForm.email}
+                      onChange={handleFeedbackChange}
+                      required
+                      className={`w-full pl-10 pr-4 py-3 border rounded-xl focus:outline-none focus:ring-2 transition-colors ${
+                        isDarkMode 
+                          ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500' 
+                          : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500'
+                      }`}
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className={`block text-sm font-medium mb-2 transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
+                    Your Feedback *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={feedbackForm.message}
+                    onChange={handleFeedbackChange}
+                    required
+                    rows={4}
+                    className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 resize-none transition-colors ${
+                      isDarkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500' 
+                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500'
+                    }`}
+                    placeholder="Please share your thoughts, suggestions, or any issues you've encountered..."
+                  />
+                </div>
+              </div>
+
+              {/* Form Actions */}
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <button
+                  type="button"
+                  onClick={closeFeedbackModal}
+                  className={`flex-1 px-4 py-3 rounded-xl text-sm font-medium border transition-colors ${
+                    isDarkMode 
+                      ? 'border-gray-600 text-gray-300 hover:border-gray-500 hover:bg-gray-700' 
+                      : 'border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50'
+                  }`}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-colors ${
+                    isDarkMode 
+                      ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                      : 'bg-blue-600 text-white hover:bg-blue-700'
+                  }`}
+                >
+                  <Send className="h-4 w-4" />
+                  Send Feedback
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
